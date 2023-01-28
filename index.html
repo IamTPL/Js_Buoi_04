@@ -13,13 +13,12 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <link rel="stylesheet" href="./assets/css/reset.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
     </head>
     <body>
         <div class="menu">
             <div class="menu-item">
-                <a href="#sub" class="title" id="link">
+                <a href="#sub" class="title active-title">
                     <i class="fa-solid fa-book"></i>
                     Bài 1
                 </a>
@@ -87,28 +86,30 @@
                         <div class="solve">
                             <ol>
                                 <li>Dùng lệnh rẽ nhánh</li>
-                                <li>Nếu là ai thì đưa ra lời chào phù hợp với người đó</li>
+                                <li>
+                                    Nếu là ai thì đưa ra lời chào phù hợp với
+                                    người đó
+                                </li>
                             </ol>
                         </div>
-                        <div class="output">
-                            Lời chào
-                        </div>
+                        <div class="output">Xuất ra lời chào</div>
                     </div>
                     <form action="">
                         <div class="row">
                             <select name="" id="family-member">
+                                <option value="">Chọn thành viên</option>
                                 <option value="F">Bố</option>
                                 <option value="M">Mẹ</option>
                                 <option value="S">Anh trai</option>
                                 <option value="D">Em gái</option>
                             </select>
                         </div>
-                        <button onclick="average()">Tính trung bình</button>
+                        <button onclick="sayHi()">Gửi lời chào</button>
                     </form>
 
                     <div class="display">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <span class="result-average" id="rs-average">0</span>
+                        <span class="result-sayHi" id="sayHello">0</span>
                     </div>
                 </div>
             </div>
@@ -121,42 +122,57 @@
                 <div class="sub-menu" id="sub-3">
                     <div class="topic">
                         <i class="fa-solid fa-arrows-spin"></i>
-                        Quy đổi tiền
+                        Đếm số chẵn lẻ
                     </div>
-                    <div class="rec">
-                        <p>
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <strong>Gợi ý:</strong>
-                        </p>
-                        <p>Kiến thức áp dụng:</p>
-                        <ul>
-                            <li>Áp dụng các kiến thức như bài 1 và 2</li>
-                            <li>Giá USD mặc định 1 USD = 23500</li>
-                            <li>
-                                Có thể dùng thêm NumberFormat để số tiền hiển
-                                thị đẹp hơn: NumberFormat
-                                <div>
-                                    VD: new
-                                    Intl.NumberFormat('vn-VN').format(23500); =>
-                                    23,500
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="chart">
+                        <div class="input">
+                            <p>Nhập vào 3 số nguyên</p>
+                        </div>
+                        <div class="solve">
+                            <ol>
+                                <li>
+                                    Để kiểm tra 1 số là chẵn hay lẻ thì ta đem
+                                    số đó chia với 2. Nếu chia hết thì là số
+                                    chẵn, ngược lại là số lẻ. (dùng toán tử %)
+                                </li>
+                                <li>
+                                    Tạo biến để chứa giá trị khi đếm. Sau khi
+                                    xác định được số đó chẵn hoặc lẻ thì tăng
+                                    biến này lên 1 đơn vị (dùng các toán tử
+                                    tăng: count++, count+=1 )
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="output">Xuất ra lời chào</div>
                     </div>
                     <form action="">
                         <div class="row">
                             <input
-                                id="usd"
+                                id="num_1"
                                 type="text"
-                                placeholder="Nhập số tiền USD"
+                                placeholder="Nhập số thứ 1"
+                            />
+                            <input
+                                id="num_2"
+                                type="text"
+                                placeholder="Nhập số thứ 2"
+                            />
+                            <input
+                                id="num_3"
+                                type="text"
+                                placeholder="Nhập số thứ 3"
                             />
                         </div>
-                        <button onclick="exchange()">Quy đổi tiền</button>
+                        <button onclick="count()">Đếm</button>
                     </form>
 
                     <div class="display">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <span class="result-exchange" id="rs-exchange">0</span>
+                        <span>Có </span>
+                        <span id="even">0</span>
+                        <span> số chẵn </span>
+                        <span id="odd">0</span>
+                        <span> số lẻ </span>
                     </div>
                 </div>
             </div>
@@ -168,49 +184,56 @@
                 </a>
                 <div class="sub-menu" id="sub-4">
                     <div class="topic">
-                        <i class="fa-solid fa-chart-area"></i>
-                        Tính diện tích, chu vi hình chữ nhật
+                        <i class="fa-solid fa-shapes"></i>
+                        Đoán hình tam giác
                     </div>
-                    <div class="rec">
-                        <p>
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <strong>Gợi ý:</strong>
-                        </p>
-                        <p>Kiến thức áp dụng:</p>
-                        <ul>
-                            <li>Áp dụng các kiến thức như các bài trước</li>
-                            <li>Diện tích: dài x rộng</li>
-                            <li>Chu vi: (dài + rộng) x 2</li>
-                        </ul>
+                    <div class="chart">
+                        <div class="input">
+                            <p>Nhập vào độ dài 3 cạnh của tam giác</p>
+                        </div>
+                        <div class="solve">
+                            <p>Kiểm tra các cạnh của tam giác</p>
+                            <ol>
+                                <li>
+                                    Tam giác đều nếu 3 cạnh bằng nhau. Vd:a = 3,
+                                    b=3 c=3
+                                </li>
+                                <li>
+                                    Tam giá cân nếu 2 cạnh bằng nhau. Vd: a=2,
+                                    b=2, c=1
+                                </li>
+                                <li>
+                                    Tam giá vuông nếu: c^2 = a^2 + b^2. Vd: a=3,
+                                    b=4, c=5
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="output">Xuất ra loại tam giác</div>
                     </div>
                     <form action="">
                         <div class="row">
                             <input
-                                id="length"
+                                id="edge1"
                                 type="text"
-                                placeholder="Nhập chiều dài"
+                                placeholder="Nhập chiều dài cạnh 1"
                             />
                             <input
-                                id="width"
+                                id="edge2"
                                 type="text"
-                                placeholder="Nhập chiều rộng"
+                                placeholder="Nhập chiều dài cạnh 2"
+                            />
+                            <input
+                                id="edge3"
+                                type="text"
+                                placeholder="Nhập chiều dài cạnh 3"
                             />
                         </div>
-                        <button onclick="area()">Quy đổi tiền</button>
+                        <button onclick="triangle()">Dự Đoán</button>
                     </form>
 
                     <div class="display">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <span style="color: rgba(100, 100, 100, 0.8)"
-                            >Diện tích:
-                        </span>
-                        <span class="result-area" id="rs-area">0</span>
-                        <span style="color: rgba(100, 100, 100, 0.8)"
-                            >|| Chu vi:
-                        </span>
-                        <span class="result-perimeter" id="rs-perimeter"
-                            >0</span
-                        >
+                        <span id="typeof-triangle">0</span>
                     </div>
                 </div>
             </div>
@@ -222,33 +245,164 @@
                 </a>
                 <div class="sub-menu" id="sub-5">
                     <div class="topic">
-                        <i class="fa-solid fa-barcode"></i>
-                        Tính tổng 2 ký số
+                        <i class="fa-sharp fa-solid fa-calendar-days"></i>
+                        Tính ngày tháng năm
                     </div>
-                    <div class="rec">
-                        <p>
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <strong>Gợi ý:</strong>
-                        </p>
-                        <p>Kiến thức áp dụng:</p>
-                        <ul>
-                            <li>Áp dụng các kiến thức như các bài trước</li>
-                        </ul>
+                    <div class="chart">
+                        <div class="input">
+                            <p>Nhập vào ngày cần kiểm tra</p>
+                        </div>
+                        <div class="solve">
+                            <p>
+                                tăng 1 hoặc trừ 1 để tính ngày hôm qua / ngày
+                                mai
+                            </p>
+                            <p>
+                                dùng câu lệnh điều kiện để kiểm tra các ngày
+                                cuối tháng và đầu tháng , cuối năm và đầu năm
+                            </p>
+                        </div>
+                        <div class="output">
+                            Xuất ra ngày hôm qua / ngày mai
+                        </div>
                     </div>
                     <form action="">
                         <div class="row">
-                            <input
-                                id="num"
-                                type="text"
-                                placeholder="Nhập số có 2 chữ số"
-                            />
+                            <input id="dmy" type="date" />
                         </div>
-                        <button onclick="sum()">Tính tổng</button>
+                        <button onclick="yesterday()">Ngày hôm qua</button>
+                        <button onclick="tomorrow()">Ngày mai</button>
                     </form>
 
                     <div class="display">
                         <i class="fa-solid fa-arrow-right"></i>
-                        <span class="result-sum" id="rs-sum">0</span>
+                        <span id="rsDMY">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#sub-6" class="title">
+                    <i class="fa-solid fa-book"></i>
+                    Bài 6
+                </a>
+                <div class="sub-menu" id="sub-6">
+                    <div class="topic">
+                        <i class="fa-sharp fa-solid fa-calendar-days"></i>
+                        Tính ngày
+                    </div>
+                    <div class="chart">
+                        <div class="input">
+                            <p>Nhập vào ngày cần kiểm tra</p>
+                        </div>
+                        <div class="solve">
+                            <p>
+                                dùng câu lệnh điều kiện để kiểm tra các tháng ,
+                                năm nhuận
+                            </p>
+                        </div>
+                        <div class="output">Xuất ra số ngày trong tháng đó</div>
+                    </div>
+                    <form action="">
+                        <div class="row">
+                            <input id="dmy2" type="date" />
+                        </div>
+                        <button onclick="days()">Tính ngày</button>
+                    </form>
+
+                    <div class="display">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span id="rsDays">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#sub-7" class="title">
+                    <i class="fa-solid fa-book"></i>
+                    Bài 7
+                </a>
+                <div class="sub-menu" id="sub-7">
+                    <div class="topic">
+                        <i class="fa-sharp fa-solid fa-arrow-up-1-9"></i>
+                        Đọc số
+                    </div>
+                    <div class="chart">
+                        <div class="input">
+                            <p>Nhập vào ngày cần kiểm tra</p>
+                        </div>
+                        <div class="solve">
+                            <p>
+                                dùng câu lệnh điều kiện để kiểm tra các tháng ,
+                                năm nhuận
+                            </p>
+                        </div>
+                        <div class="output">Xuất ra số ngày trong tháng đó</div>
+                    </div>
+                    <form action="">
+                        <div class="row">
+                            <input id="number" type="number" />
+                        </div>
+                        <button onclick="readNumber()">Đọc số</button>
+                    </form>
+
+                    <div class="display">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span id="rsReadDays">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#sub-8" class="title" id="topic">
+                    <i class="fa-solid fa-book"></i>
+                    Bài 8
+                </a>
+                <div class="sub-menu" id="sub-8">
+                    <div class="topic" style="margin-bottom: 0;" >
+                        <i class="fa-solid fa-location-dot"></i>
+                        Tìm sinh viên xa trường nhất
+                    </div>
+                    <div class="chart">
+                        <div class="input">
+                            <p>Nhập tọa độ các sinh viên</p>
+                        </div>
+                        <div class="solve">
+                            <p>
+                                tính đoạn đường sinh viên đến trường
+                            </p>
+                        </div>
+                        <div class="output">Xuất ra tên sinh viên có đoạn đường dài nhất</div>
+                    </div>
+                    <form action="">
+                        <div class="row">
+                            <div class="student">
+                                <p style="margin: 0 15px 5px; font-weight: 600;">Sinh viên 1</p>
+                                <input id="name1" type="text" />
+                                <input id="x1" type="number" />
+                                <input id="y1" type="number" />
+                            </div>
+                            <div class="student">
+                                <p style="margin: 0 15px 5px; font-weight: 600;">Sinh viên 2</p>
+                                <input id="name2" type="text" />
+                                <input id="x2" type="number" />
+                                <input id="y2" type="number" />
+                            </div>
+                            <div class="student">
+                                <p style="margin: 0 15px 5px; font-weight: 600;">Sinh viên 3</p>
+                                <input id="name3" type="text" />
+                                <input id="x3" type="number" />
+                                <input id="y3" type="number" />
+                            </div>
+                            <div class="school">
+                                <p style="margin: 0 15px 5px; font-weight: 600;">Trường học</p>
+                                <input id="xS" type="number" />
+                                <input id="yS" type="number" />
+                            </div>
+                        </div>
+                        <button onclick="find()">Tìm</button>
+                    </form>
+
+                    <div class="display">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span id="rsFind">0</span>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ body {
     color: #00547a;
     padding: 25px 20px;
     width: 1000px;
-    height: 680px;
+    min-height: 700px;
     background-color: rgba(126, 126, 126, 0.4);
     border-radius: 15px 30px 150px 15px;
     border: 1px solid rgba(169, 201, 255, 0.5);
@@ -50,7 +50,7 @@ body {
     transition: all 0.3s;
 }
 
-.menu-item:hover .title {
+.menu-item:hover .title, .active-title {
     background-color: #ff3cac;
     background-image: linear-gradient(
         25deg,
@@ -125,7 +125,7 @@ body {
 .chart .solve::after {
     content: '';
     border: 15px solid transparent;
-    border-left-color:  rgba(231, 99, 90, 0.4);
+    border-left-color: rgba(231, 99, 90, 0.4);
     position: absolute;
     right: -30px;
     bottom: 50%;
@@ -137,9 +137,7 @@ body {
     background: rgba(114, 231, 90, 0.4);
     border-radius: 20px;
     position: relative;
-
 }
-
 
 form {
     margin-top: 20px;
@@ -152,20 +150,18 @@ input {
     border: none;
     width: 200px;
     font-size: 1.6rem;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-        rgba(10, 37, 64, 0.4) 0px -3px 7px 0px inset;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: rgba(49, 49, 49, 0.4) 2px 2px 8px 2px inset,
+        rgba(204, 204, 204, 0.4) -2px -2px 8px 2px inset;
     transition: all 0.3s;
 }
 
 input:focus {
     border: none;
     outline: none;
-    box-shadow: rgba(91, 91, 253, 0.342) 0px 50px 100px -20px,
-        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-        rgba(41, 133, 224, 0.6) 2px -5px 8px 0px inset;
+    box-shadow: rgba(72, 201, 240, 0.5) 2px 2px 8px 2px inset,
+        rgba(72, 201, 240, 0.5) -2px -2px 8px 2px inset;
     transition: all 0.3s;
 }
 
@@ -205,16 +201,23 @@ form button:hover {
         rgba(10, 37, 64, 0.4) 0px -3px 7px 0px inset;
 }
 
-
 #family-member {
-    padding: 8px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
     width: 200px;
-    font-size: 1.6rem;
-    background: rgba(247, 200, 200, 0.315);
-    
+    font-size: 1.7rem;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: rgba(49, 49, 49, 0.4) 2px 2px 8px 2px inset,
+        rgba(204, 204, 204, 0.4) -2px -2px 8px 2px inset;
+    border-radius: 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-#family-member, #family-member:focus, #family-member:hover  {
+#family-member,
+#family-member option,
+#family-member:focus,
+#family-member:hover {
     border: none;
     outline: none;
 }
