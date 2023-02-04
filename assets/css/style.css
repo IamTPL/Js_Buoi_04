@@ -72,12 +72,7 @@ body::before {
 .menu-item:hover .title,
 .active-title {
     background-color: #ff3cac;
-    background-image: linear-gradient(
-        25deg,
-        #ff3cac 0%,
-        #784ba0 50%,
-        #2b86c5 100%
-    );
+    background-image: linear-gradient(25deg, #df3f9a 0%, #419ddf 100%);
     color: #09defa;
 }
 
@@ -208,12 +203,7 @@ form button {
 }
 
 form button:hover {
-    background-image: linear-gradient(
-        25deg,
-        #ff3cac 0%,
-        #784ba0 50%,
-        #2b86c5 100%
-    );
+    background-image: linear-gradient(25deg, #df3f9a 0%, #419ddf 100%);
     color: white;
 }
 
