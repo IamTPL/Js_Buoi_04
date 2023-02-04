@@ -76,6 +76,21 @@ body::before {
     color: #09defa;
 }
 
+.book {
+    display: inline-block;
+}
+
+.book .fa-book-open {
+    display: none;
+}
+
+.active-title .book .fa-book-open {
+    display: block;
+}
+.active-title .book .fa-book {
+    display: none;
+}
+
 .sub-menu {
     position: absolute;
     padding: 30px 40px;
